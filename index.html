@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MineSweeper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+    <style>
+      body {
+        background-color: #570a57;
+        color: white;
+        text-align: center;
+      }
+
+      .game-settings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .start-button {
+        flex: 0 0 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .start-button button {
+        color: white;
+        background-color: #2e0249;
+        border: solid 2px;
+        border-color: #000000;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .nt {
+        font-size: 20px;
+      }
+
+      .sliders {
+        flex: 0 0 100%;
+        display: flex;
+        margin: 20px;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .sliders input {
+        margin-bottom: 5px;
+      }
+
+      /* The slider itself */
+      .slider {
+        -webkit-appearance: none; /* Override default CSS styles */
+        appearance: none;
+        height: 25px; /* Specified height */
+        background: #d3d3d3; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+        transition: opacity 0.2s;
+        order: solid 2px;
+        border-color: #000000;
+      }
+
+      /* Mouse-over effects */
+      .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+      }
+
+      /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #2e0249; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
+
+      .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #2e0249; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
+
+      .root {
+        display: inline-grid;
+        font-size: 25px;
+        grid-gap: 5px;
+        margin: 10px;
+      }
+
+      .cell {
+        margin: 0;
+        cursor: pointer;
+      }
+    </style>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <noscript
+      >This page contains webassembly and javascript content, please enable
+      javascript in your browser.</noscript
+    >
+    <div class="main">
+      <div class="game-settings">
+        <div class="start-button">
+          <button>Start Game</button>
+        </div>
+        <div class="nt" style="display: none">
+          Nt :3, give it another try plz
+        </div>
+        <div class="sliders">
+          <label for="grid-size">Width</label>
+          <input
+            type="range"
+            min="2"
+            max="100"
+            value="10"
+            class="slider"
+            id="grid-size"
+          />
+
+          <label for="mine-input">Mines count</label>
+          <input
+            type="range"
+            min="5"
+            max="1000"
+            value="25"
+            class="slider"
+            id="mines-input"
+          />
+        </div>
+      </div>
+      <div class="root"></div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
